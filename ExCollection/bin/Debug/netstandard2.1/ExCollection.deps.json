@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "ExCollection/1.0.1": {
+      "ExCollection/1.0.3": {
         "dependencies": {
           "System.Drawing.Common": "5.0.0"
         },
@@ -26,7 +26,7 @@
     }
   },
   "libraries": {
-    "ExCollection/1.0.1": {
+    "ExCollection/1.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

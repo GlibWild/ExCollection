@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cFglPvIAFrhQg9Yqb9o0uLszl6pMBdkTKZMw0DMp+AxZefAo86Q7FrewwMfZ+YFtFOlWB79qOoJxxolax8fjwA==",
+  "dgSpecHash": "sdQbb58nmmAvyWmD2e0z82rQe0X2AAHH/trjSxV03G+eExTCno6PQLTjezf6ObGv+RxBvnalraHz/J0sIfGG9A==",
   "success": true,
-  "projectFilePath": "E:\\x\\XTool\\Extends\\ExCollection\\ExCollection\\ExCollection.csproj",
+  "projectFilePath": "E:\\x\\XTool\\ExCollection\\ExCollection\\ExCollection.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abc\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512"
   ],

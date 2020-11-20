@@ -68,13 +68,13 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "restore": {
-      "projectUniqueName": "E:\\x\\XTool\\Extends\\ExCollection\\ExCollection\\ExCollection.csproj",
+      "projectUniqueName": "E:\\x\\XTool\\ExCollection\\ExCollection\\ExCollection.csproj",
       "projectName": "ExCollection",
-      "projectPath": "E:\\x\\XTool\\Extends\\ExCollection\\ExCollection\\ExCollection.csproj",
+      "projectPath": "E:\\x\\XTool\\ExCollection\\ExCollection\\ExCollection.csproj",
       "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-      "outputPath": "E:\\x\\XTool\\Extends\\ExCollection\\ExCollection\\obj\\",
+      "outputPath": "E:\\x\\XTool\\ExCollection\\ExCollection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
