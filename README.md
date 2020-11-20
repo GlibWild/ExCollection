@@ -30,4 +30,6 @@ Degree d1 = new Degree(103.66,30.06);
 Degree d2 = new Degree(104.36,30.46);
 var disctance = ExDegree.GetDistance(d1,d2);
 ```
+### V1.0.4:
+#### 添加netframework4.6.1实现
 ##### 更新中...
