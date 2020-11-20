@@ -21,4 +21,13 @@
   list.Add(new Test() { Id = 2, Name = "234" });
   DataTable dt = ExModel<Test>.FillDataTable(list);
 ```
+### V1.0.3:
+#### 1. 计算两个经纬度之间的直接距离(google 算法)
+#### 2. 以一个经纬度为中心计算出四个顶点
+举例说明：
+```
+Degree d1 = new Degree(103.66,30.06);
+Degree d2 = new Degree(104.36,30.46);
+var disctance = ExDegree.GetDistance(d1,d2);
+```
 ##### 更新中...
