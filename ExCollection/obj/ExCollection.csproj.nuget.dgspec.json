@@ -5,7 +5,7 @@
   },
   "projects": {
     "E:\\x\\XTool\\ExCollection\\ExCollection\\ExCollection.csproj": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "restore": {
         "projectUniqueName": "E:\\x\\XTool\\ExCollection\\ExCollection\\ExCollection.csproj",
         "projectName": "ExCollection",
@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
         "outputPath": "E:\\x\\XTool\\ExCollection\\ExCollection\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -23,12 +24,17 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
+          "net461",
           "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
+          "net461": {
+            "targetAlias": "net461",
+            "projectReferences": {}
+          },
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {}
@@ -41,6 +47,16 @@
         }
       },
       "frameworks": {
+        "net461": {
+          "targetAlias": "net461",
+          "dependencies": {
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        },
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {

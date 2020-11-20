@@ -14,3 +14,4 @@ E:\x\XTool\ExCollection\ExCollection\obj\Release\netstandard2.1\ExCollection.Ass
 E:\x\XTool\ExCollection\ExCollection\obj\Release\netstandard2.1\ExCollection.csproj.CoreCompileInputs.cache
 E:\x\XTool\ExCollection\ExCollection\obj\Release\netstandard2.1\ExCollection.dll
 E:\x\XTool\ExCollection\ExCollection\obj\Release\netstandard2.1\ExCollection.pdb
+E:\x\XTool\ExCollection\ExCollection\obj\Release\netstandard2.1\ExCollection.csprojAssemblyReference.cache
