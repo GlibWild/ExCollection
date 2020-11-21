@@ -1,0 +1,9 @@
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\net461\ExCollection.dll
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\net461\ExCollection.pdb
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\net461\System.Drawing.Common.dll
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.AssemblyInfoInputs.cache
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.AssemblyInfo.cs
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.csproj.CopyComplete
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.dll
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.pdb
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\net461\ExCollection.csprojAssemblyReference.cache

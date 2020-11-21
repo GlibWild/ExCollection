@@ -16,3 +16,10 @@ E:\x\XTool\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.Assem
 E:\x\XTool\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.csproj.CoreCompileInputs.cache
 E:\x\XTool\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.dll
 E:\x\XTool\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.pdb
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\netstandard2.1\ExCollection.deps.json
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\netstandard2.1\ExCollection.dll
+D:\Tool\code-project\ExCollection\ExCollection\bin\Debug\netstandard2.1\ExCollection.pdb
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.AssemblyInfoInputs.cache
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.AssemblyInfo.cs
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.dll
+D:\Tool\code-project\ExCollection\ExCollection\obj\Debug\netstandard2.1\ExCollection.pdb
