@@ -1,9 +1,0 @@
-E:\x\XTool\Extends\ExCollection\ExCollection\bin\Debug\netstandard2.0\ExCollection.deps.json
-E:\x\XTool\Extends\ExCollection\ExCollection\bin\Debug\netstandard2.0\ExCollection.dll
-E:\x\XTool\Extends\ExCollection\ExCollection\bin\Debug\netstandard2.0\ExCollection.pdb
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.csprojAssemblyReference.cache
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.AssemblyInfoInputs.cache
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.AssemblyInfo.cs
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.csproj.CoreCompileInputs.cache
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.dll
-E:\x\XTool\Extends\ExCollection\ExCollection\obj\Debug\netstandard2.0\ExCollection.pdb
