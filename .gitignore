@@ -1,3 +1,5 @@
-/.vs
-/bin
-/obj
+/ExCollection/bin/
+/ExCollection/obj/
+/UnitTestProject1/obj/
+/UnitTestProject1/bin/
+/.vs/
