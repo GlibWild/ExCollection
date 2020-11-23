@@ -8,14 +8,14 @@
 #### 1. 添加字节数组，日期，图片，DataTable/DataSet转实体类等实现
 ##### 字节数组，日期，图片均为扩展方法
 ##### 实体类转换为泛型方法，举例说明：
-``` 实体类
+```c# 实体类
     public class Test 
     {
         public int Id { get; set; }
         public string Name { get; set; }
     }
 ```
-```
+```c#
   List<Test> list = new List<Test>();
   list.Add(new Test() { Id=1,Name="123"});
   list.Add(new Test() { Id = 2, Name = "234" });
@@ -25,7 +25,7 @@
 #### 1. 计算两个经纬度之间的直接距离(google 算法)
 #### 2. 以一个经纬度为中心计算出四个顶点
 举例说明：
-```
+```c#
 Degree d1 = new Degree(103.66,30.06);
 Degree d2 = new Degree(104.36,30.46);
 var disctance = ExDegree.GetDistance(d1,d2);
