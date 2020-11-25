@@ -4,67 +4,223 @@ using System.Text;
 
 namespace ExCollection
 {
-    public static class ExByte
+    public unsafe static class ExByte
     {
         /// <summary>
-        /// int转bytes数组
+        /// 获取指定位的值(0或1)
         /// </summary>
-        /// <param name="data">值</param>
-        /// <param name="big_Endian">是否为大端  举例：0x123456  big_endian:byte[0] = 0x12 byte[2] = 0x34 byte[3] = 0x56   little_endian:byte[0] = 0x56 byte[1] = 0x34 byte[2] = 0x12</param>
+        /// <param name="src"></param>
+        /// <param name="position"></param>
+        /// <param name="len"></param>
         /// <returns></returns>
-        public static byte[] Int2Bytes(this int data, bool big_Endian = true)
+        public static int GetBitValue(this uint src, int position)
         {
-            byte[] result = new byte[4];
-            if (big_Endian)
-            {
-                result[3] = (byte)((data >> 0) & 0xFF);
-                result[2] = (byte)((data >> 8) & 0xFF);
-                result[1] = (byte)((data >> 16) & 0xFF);
-                result[0] = (byte)((data >> 24) & 0xFF);
-            }
-            else
-            {
-                result[0] = (byte)((data >> 0) & 0xFF);
-                result[1] = (byte)((data >> 8) & 0xFF);
-                result[2] = (byte)((data >> 16) & 0xFF);
-                result[3] = (byte)((data >> 24) & 0xFF);
-            }
-            return result;
+            int temp = 1;
+            return (int)(src >> position) & temp;
+        }
+
+        /// <summary>
+        /// 设置指定位的值(0或1)
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="position"></param>
+        /// <param name="val">0/1</param>
+        public static uint SetBitValue(this uint src, int position, int val)
+        {
+            src = val == 0 ? src & (uint)(~(0x1 << position)) : src | (uint)(0x1 << position);
+            return src;
         }
         /// <summary>
-        /// bytes转int，bytes.length>4时，截取最后四位字节数组
+        /// 字节数组转ushort
         /// </summary>
-        /// <param name="data">byte数组</param>
-        /// <param name="big_Endian">是否为大端  举例：0x123456  big_endian:byte[0] = 0x12 byte[2] = 0x34 byte[3] = 0x56   little_endian:byte[0] = 0x56 byte[1] = 0x34 byte[2] = 0x12</param>
+        /// <param name="data">字节数组</param>
+        /// <param name="pos">数组指定开始下标</param>
+        /// <param name="isBig">是否为大端模式</param>
         /// <returns></returns>
-        public static int Bytes2Int(this byte[] data, bool big_Endian = true)
+        public static ushort GetUShort(this byte[] data, int pos, bool isBig = true)
         {
-            byte[] temp = null;
-            if (data.Length > 4)
+            if (isBig)
             {
-                temp = new byte[4];
-                System.Array.Copy(data, data.Length - 4, temp, 0, temp.Length);
+                ushort tmp = (ushort)((data[0 + pos] << 8) | data[1 + pos]);
+                return tmp;
             }
-            else 
+            else
             {
-                temp = data;
+                ushort tmp = (ushort)((data[1 + pos] << 8) | data[0 + pos]);
+                return tmp;
             }
-            int result = 0;
-            if (big_Endian)
+        }
+        /// <summary>
+        /// 字节数组转uint
+        /// </summary>
+        /// <param name="data">字节数组</param>
+        /// <param name="pos">数组指定开始下标</param>
+        /// <param name="isBig">是否为大端模式</param>
+        /// <returns></returns>
+        public static uint GetUInt(this byte[] data, int pos, bool isBig = true)
+        {
+            if (isBig)
             {
+                uint tmp = (uint)((data[pos] << 24) | (data[1 + pos] << 16) | (data[2 + pos] << 8) | data[3 + pos]);
+                return tmp;
+            }
+            else
+            {
+                uint tmp = (uint)((data[3 + pos] << 24) | (data[2 + pos] << 16) | (data[1 + pos] << 8) | data[0 + pos]);
+                return tmp;
+            }
+        }
+        /// <summary>
+        /// 字节数组转long
+        /// </summary>
+        /// <param name="data">数组</param>
+        /// <param name="pos">数组指定开始下标</param>
+        /// <param name="isBig">是否为大端模式</param>
+        /// <returns></returns>
+        public static long getLong(this byte[] data, int pos, bool isBig = true)
+        {
+            if (isBig)
+            {
+                long tmp = (((long)data[pos] << 56) | ((long)data[1 + pos] << 48) | ((long)data[2 + pos] << 40) | ((long)data[3 + pos] << 32) | ((long)data[4 + pos] << 24) | ((long)data[5 + pos] << 16) | ((long)data[6 + pos] << 8) | ((long)data[7 + pos]));
+                return tmp;
+            }
+            else
+            {
+                long tmp = (((long)data[7 + pos] << 56) | ((long)data[6 + pos] << 48) | ((long)data[5 + pos] << 40) | ((long)data[4 + pos] << 32) | ((long)data[3 + pos] << 24) | ((long)data[2 + pos] << 16) | ((long)data[1 + pos] << 8) | ((long)data[pos]));
+                return tmp;
+            }
+        }
+
+        /// <summary>
+        /// WORD字节码
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static byte[] GetBytes(this ushort value)
+        {
+            ushort tmp = value;
+            byte[] data = new byte[2];
+            for (int i = data.Length - 1; i >= 0; i--)
+            {
+                data[i] = (byte)(tmp & 0xFF);
+                tmp = (ushort)(tmp >> 8);
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// DWORD字节码
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static byte[] GetBytes(this uint value)
+        {
+            byte[] data = new byte[4];
+            byte[] high = GetBytes((ushort)((value >> 16) & 0xFFFF));
+            byte[] low = GetBytes((ushort)(value & 0xFFFF));
+            Buffer.BlockCopy(high, 0, data, 0, 2);
+            Buffer.BlockCopy(low, 0, data, 2, 2);
+            return data;
+        }
+
+        /// <summary>
+        /// 获取字符串字节码(GBK编码)
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static byte[] GetBytes(this string str)
+        {
+            return Encoding.GetEncoding("GBK").GetBytes(str);
+        }
+
+        /// <summary>
+        /// 填充数组
+        /// </summary>
+        /// <param name="data">原数组</param>
+        /// <param name="totalLength">总长度</param>
+        /// <param name="pad">填充位置</param>
+        /// <param name="c">填充数据</param>
+        /// <returns></returns>
+        public static byte[] FixBytes(this byte[] data, int totalLength, Pad pad, char c)
+        {
+            byte fill = (byte)c;
+            byte[] bytes = new byte[totalLength];
+            if (data.Length < totalLength)
+            {
+                int offset = totalLength - data.Length;
+                byte[] temp = new byte[offset];
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    result |= (temp[i] << (temp.Length - 1 - i) * 8);
+                    temp[i] = fill;
+                }
+                switch (pad)
+                {
+                    case Pad.padLeft:
+                        Array.Copy(temp, 0, bytes, 0, temp.Length);
+                        Array.Copy(data, 0, bytes, temp.Length, data.Length);
+                        break;
+                    case Pad.padRight:
+                        Array.Copy(data, 0, bytes, 0, data.Length);
+                        Array.Copy(temp, 0, bytes, data.Length, temp.Length);
+                        break;
                 }
             }
             else
             {
-                for (int i = temp.Length - 1; i >= 0; i--)
+                Array.Copy(data, 0, bytes, 0, data.Length);
+            }
+            return bytes;
+        }
+
+        /// <summary>
+        /// DateTime转BCD码字节数组
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static byte[] GetDateTimeBCD(this DateTime dateTime)
+        {
+            string timeStr = dateTime.ToString("yyMMddHHmmss");
+            byte[] data = new byte[6];
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = (byte)((Convert.ToByte(timeStr[i * 2].ToString()) << 4) | Convert.ToByte(timeStr[i * 2 + 1].ToString()));
+            }
+            return data;
+        }
+        public static DateTime ParseDateTime(this byte[] data)
+        {
+            StringBuilder timeStrBuf = new StringBuilder();
+            timeStrBuf.Append("20");
+            for (int i = 0; i < data.Length; i++)
+            {
+                timeStrBuf.Append(Convert.ToString((data[i] >> 4) & 0xF));
+                timeStrBuf.Append(Convert.ToString(data[i] & 0xF));
+                if (i < 2)
                 {
-                    result |= (temp[i] << (i * 8));
+                    timeStrBuf.Append("-");
+                }
+                else if (i < 3)
+                {
+                    timeStrBuf.Append(" ");
+                }
+                else if (i < data.Length - 1)
+                {
+                    timeStrBuf.Append(":");
                 }
             }
-            return result;
+            return Convert.ToDateTime(timeStrBuf.ToString());
+        }
+        /// <summary>
+        /// bytes 转double
+        /// </summary>
+        /// <param name="m_buffer"></param>
+        /// <returns></returns>
+        public static double ReadDouble(this byte[] m_buffer)
+        {
+            uint num = (uint)(m_buffer[0] | (m_buffer[1] << 8) | (m_buffer[2] << 16) | (m_buffer[3] << 24));
+            uint num2 = (uint)(m_buffer[4] | (m_buffer[5] << 8) | (m_buffer[6] << 16) | (m_buffer[7] << 24));
+            ulong num3 = ((ulong)num2 << 32) | num;
+            return *(double*)(&num3);
         }
 
         /// <summary>
@@ -120,6 +276,14 @@ namespace ExCollection
                 headLength = 0;
                 dataLength = 0;
             }
+        }
+        /// <summary>
+        /// 方向
+        /// </summary>
+        public enum Pad
+        {
+            padLeft = 0,
+            padRight = 1
         }
     }
 }
