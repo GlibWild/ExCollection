@@ -9,9 +9,13 @@
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/GlibWild/ExCollection</PackageProjectUrl>
-    <Version>1.0.4</Version>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <Version>1.0.4.1</Version>
+    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <FileVersion>1.0.0.5</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
