@@ -32,11 +32,17 @@ var disctance = ExDegree.GetDistance(d1,d2);
 ```
 ### V1.0.4:
 #### 添加netframework4.6.1实现
+
 ### V1.0.4.1: 均为扩展方法
-#### 更新ExBytes
+#### 更新ExByte
 #### 1.添加获取/设置uint指定位的值
 #### 2.添加字节数组转ushort,uint,long
 #### 3.添加ushort，uint转字节数组
 #### 4.添加字节数组BCD码转DateTime，以及DateTime转BCD码字节数组
 #### 5.字节数组转Double
+
+### V1.0.4.2:
+#### 更新ExByte
+#### 1.添加byte数组获取指定位数的值
+
 ##### 更新中...
