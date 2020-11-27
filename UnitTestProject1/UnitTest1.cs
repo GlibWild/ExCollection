@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ExCollection;
+using System;
 
 namespace UnitTestProject1
 {
@@ -8,6 +9,16 @@ namespace UnitTestProject1
     {
         [TestMethod]
         public void TestMethod1()
+        {
+            TestGetBitValue();
+        }
+        [TestMethod]
+        public void TestMethod2() 
+        {
+            TestSetBitValue();
+        }
+
+        private static void TestGetBitValue()
         {
             byte[] bytes = new byte[] { 0x55, 0x18, 0x37 };
             byte bit = bytes.GetBitValue(3);
@@ -44,6 +55,21 @@ namespace UnitTestProject1
             Assert.AreEqual(bit8, fbit8);
             Assert.AreEqual(bit9, fbit9);
             Assert.AreEqual(bit10, fbit10);
+        }
+
+        private void TestSetBitValue()
+        {
+            byte[] bytes = new byte[] { 0x55, 0x18, 0x37 };
+            byte[] result = bytes.SetBitValue(0, 0);
+            byte[] result2 = bytes.SetBitValue(3, 1);
+            byte[] result3 = bytes.SetBitValue(4, 0);
+            byte[] result4 = bytes.SetBitValue(11, 0);
+
+
+            byte[] bytes1 = new byte[] { 0x37, 0x18, 0x55 };
+            byte[] fresult = bytes1.SetBitValue(0, 0, false);
+            byte[] fresult2 = bytes1.SetBitValue(3, 1, false);
+            byte[] fresult3 = bytes1.SetBitValue(4, 0, false);
         }
     }
 }

@@ -31,16 +31,11 @@ namespace ExCollection
         }
         public static byte GetBitValue(this byte[] src, int position, bool isBig = true)
         {
-            int index;
+            int index = position / 8; ;
             int temp = 1;
             if (isBig)
             {
-                index = src.Length - (position / 8) - 1;
-
-            }
-            else
-            {
-                index = position / 8;
+                index = src.Length - index - 1;
 
             }
             int res = position % 8;
@@ -59,6 +54,29 @@ namespace ExCollection
             src = val == 0 ? src & (uint)(~(0x1 << position)) : src | (uint)(0x1 << position);
             return src;
         }
+
+        /// <summary>
+        /// 设置指定位的值(0或1)
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="position"></param>
+        /// <param name="val">0/1</param>
+        public static byte[] SetBitValue(this byte[] src, int position, int val,bool isBig = true)
+        {
+            byte[] bytes = new byte[src.Length];
+            src.CopyTo(bytes, 0);
+            int index = position / 8;
+
+            if (isBig)
+            {
+                index = bytes.Length - index - 1;
+
+            }
+            int res = position % 8;
+            bytes[index] = val == 0 ? (byte)(bytes[index] & (byte)(~(0x01 << res))) : (byte)(bytes[index] | (byte)(0x01 << res));
+            return bytes;
+        }
+
         /// <summary>
         /// 字节数组转ushort
         /// </summary>
