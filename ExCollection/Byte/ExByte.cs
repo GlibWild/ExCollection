@@ -19,6 +19,35 @@ namespace ExCollection
             return (int)(src >> position) & temp;
         }
 
+        public static byte GetBitValue(this ushort src, int position)
+        {
+            int temp = 1;
+            return (byte)((src >> position) & temp);
+        }
+        public static byte GetBitValue(this byte src, int position)
+        {
+            int temp = 1;
+            return (byte)((src >> position) & temp);
+        }
+        public static byte GetBitValue(this byte[] src, int position, bool isBig = true)
+        {
+            int index;
+            int temp = 1;
+            if (isBig)
+            {
+                index = src.Length - (position / 8) - 1;
+
+            }
+            else
+            {
+                index = position / 8;
+
+            }
+            int res = position % 8;
+            byte aim = src[index];
+            return (byte)((aim >> res) & temp);
+        }
+
         /// <summary>
         /// 设置指定位的值(0或1)
         /// </summary>
