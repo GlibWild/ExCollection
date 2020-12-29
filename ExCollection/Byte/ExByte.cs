@@ -61,6 +61,18 @@ namespace ExCollection
         /// <param name="src"></param>
         /// <param name="position"></param>
         /// <param name="val">0/1</param>
+        public static int SetBitValue(this int src, int position, int val)
+        {
+            src = val == 0 ? src & (~(0x1 << position)) : src | (0x1 << position);
+            return src;
+        }
+
+        /// <summary>
+        /// 设置指定位的值(0或1)
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="position"></param>
+        /// <param name="val">0/1</param>
         public static byte[] SetBitValue(this byte[] src, int position, int val,bool isBig = true)
         {
             byte[] bytes = new byte[src.Length];
@@ -124,7 +136,7 @@ namespace ExCollection
         /// <param name="pos">数组指定开始下标</param>
         /// <param name="isBig">是否为大端模式</param>
         /// <returns></returns>
-        public static long getLong(this byte[] data, int pos, bool isBig = true)
+        public static long GetLong(this byte[] data, int pos, bool isBig = true)
         {
             if (isBig)
             {
