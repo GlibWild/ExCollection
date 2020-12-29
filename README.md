@@ -49,4 +49,8 @@ var disctance = ExDegree.GetDistance(d1,d2);
 #### 更新ExByte
 #### 1.添加设置byte数组指定位的值
 
+### V1.0.4.4
+#### 1.添加通用枚举值Attribute获取
+#### 2.添加int SetBitValue方法
+
 ##### 更新中...
