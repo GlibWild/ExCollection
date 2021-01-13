@@ -53,4 +53,7 @@ var disctance = ExDegree.GetDistance(d1,d2);
 #### 1.添加通用枚举值Attribute获取
 #### 2.添加int SetBitValue方法
 
+### V1.0.4.5
+#### 添加byte、byte数组的位上是否存在指定值（0，1)的功能 HasBitValue
+
 ##### 更新中...
