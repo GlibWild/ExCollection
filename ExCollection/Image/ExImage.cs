@@ -129,8 +129,8 @@ namespace ExCollection
         /// <summary>
         /// 从大图中截取图像
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="rect"></param>
+        /// <param name="source">原图像</param>
+        /// <param name="rect">截取区域</param>
         /// <returns></returns>
         public static Image Partial(this Image source, Rectangle rect)
         {
