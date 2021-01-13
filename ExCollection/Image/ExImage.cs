@@ -66,7 +66,7 @@ namespace ExCollection
         /// <param name="fileName"></param>
         /// <param name="buffer"></param>
         /// <returns></returns>
-        public static string CreateImageFromBytes(this byte[] buffer,string fileName)
+        public static string CreateImageFromBytes(this byte[] buffer, string fileName)
         {
             string file = fileName;
             Image image = BytesToImage(buffer);
@@ -95,6 +95,46 @@ namespace ExCollection
             System.IO.Directory.CreateDirectory(info.Directory.FullName);
             File.WriteAllBytes(file, buffer);
             return file;
+        }
+
+        /// <summary>
+        /// 从大图中截取图像
+        /// </summary>
+        /// <param name="source">原图像</param>
+        /// <param name="rects">截取区域列表</param>
+        /// <returns></returns>
+        public static Image[] Partial(this Image source, Rectangle[] rects)
+        {
+            if (rects == null || rects.Length == 0)
+                return new Bitmap[0];
+
+            var images = new Image[rects.Length];
+            var fullRect = new Rectangle(0, 0, source.Width, source.Height);
+
+            for (int i = 0; i < images.Length; i++)
+            {
+                var rect = Rectangle.Intersect(fullRect, rects[i]);
+                using (var bitmap = new Bitmap(rect.Width, rect.Height))
+                {
+                    using (var graphics = Graphics.FromImage(bitmap))
+                    {
+                        graphics.DrawImage(source, new Rectangle(Point.Empty, bitmap.Size), rect, GraphicsUnit.Pixel);
+                        images[i] = Image.FromHbitmap(bitmap.GetHbitmap());
+                    }
+                }
+            }
+            return images;
+        }
+
+        /// <summary>
+        /// 从大图中截取图像
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="rect"></param>
+        /// <returns></returns>
+        public static Image Partial(this Image source, Rectangle rect)
+        {
+            return Partial(source, new Rectangle[] { rect })[0];
         }
     }
 }
