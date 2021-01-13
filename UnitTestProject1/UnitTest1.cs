@@ -23,6 +23,19 @@ namespace UnitTestProject1
         {
             TestGetAttribute();
         }
+        [TestMethod]
+        public void TestMethod4() {
+            TestHasBitValue();
+        }
+
+        private void TestHasBitValue()
+        {
+            byte[] temp = new byte[10];
+            bool flag1 = temp.HasBitValue();
+            temp = new byte[2] { 0xFF, 0xFF };
+            bool flag2 = temp.HasBitValue(ExByte.Bit.Zero);
+            bool flag3 = temp.HasBitValue(ExByte.Bit.One);
+        }
 
         private void TestGetAttribute()
         {

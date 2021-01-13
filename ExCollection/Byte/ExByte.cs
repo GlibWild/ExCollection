@@ -6,6 +6,60 @@ namespace ExCollection
 {
     public unsafe static class ExByte
     {
+        public static bool HasBitValue(this byte src, Bit bit = Bit.One)
+        {
+            bool flag = false;
+            if (bit == Bit.One)
+            {
+                if (src > 0)
+                    flag = true;
+            }
+            else if (bit == Bit.Zero)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    byte temp = src.GetBitValue(i);
+                    if (temp == 0)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+
+            }
+            return flag;
+        }
+        /// <summary>
+        /// 判断字节数组中位是否包含指定值（0，1）
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="bit"></param>
+        /// <returns></returns>
+        public static bool HasBitValue(this byte[] src, Bit bit = Bit.One)
+        {
+            bool flag = false;
+            foreach (var item in src)
+            {
+                switch (bit)
+                {
+                    case Bit.One:
+                        if (item > 0)
+                            flag = true;
+                        break;
+                    case Bit.Zero:
+                        for (int i = 0; i < 8; i++)
+                        {
+                            byte temp = item.GetBitValue(i);
+                            if (temp == 0)
+                                flag = true;
+                        }
+                        break;
+                }
+                if (flag) break;
+            }
+            return flag;
+        }
+
         /// <summary>
         /// 获取指定位的值(0或1)
         /// </summary>
@@ -73,7 +127,7 @@ namespace ExCollection
         /// <param name="src"></param>
         /// <param name="position"></param>
         /// <param name="val">0/1</param>
-        public static byte[] SetBitValue(this byte[] src, int position, int val,bool isBig = true)
+        public static byte[] SetBitValue(this byte[] src, int position, int val, bool isBig = true)
         {
             byte[] bytes = new byte[src.Length];
             src.CopyTo(bytes, 0);
@@ -343,6 +397,11 @@ namespace ExCollection
         {
             padLeft = 0,
             padRight = 1
+        }
+        public enum Bit
+        {
+            Zero = 0,
+            One = 1,
         }
     }
 }

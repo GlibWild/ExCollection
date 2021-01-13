@@ -9,9 +9,9 @@
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/GlibWild/ExCollection</PackageProjectUrl>
-    <Version>1.0.4.4</Version>
-    <AssemblyVersion>1.0.0.8</AssemblyVersion>
-    <FileVersion>1.0.0.8</FileVersion>
+    <Version>1.0.4.5</Version>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
+    <FileVersion>1.0.0.9</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
