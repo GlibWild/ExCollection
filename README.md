@@ -56,4 +56,7 @@ var disctance = ExDegree.GetDistance(d1,d2);
 ### V1.0.4.5
 #### 添加byte、byte数组的位上是否存在指定值（0，1)的功能 HasBitValue
 
+### V1.0.4.6
+#### 1.添加图片切割扩展方法
+#### 2.添加字节数组转格式化字符串扩展方法
 ##### 更新中...
