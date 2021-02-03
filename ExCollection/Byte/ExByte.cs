@@ -354,6 +354,58 @@ namespace ExCollection
         }
 
         /// <summary>
+        /// 字节数组转16进制字符串（带格式）
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        public static string ToFormattedHexString(this byte[] body)
+        {
+            /*
+             * ----------------------------------------------------------------------------
+             * - TIME: 2019-10-16 15:33:50.000
+             * ----------------------------------------------------------------------------
+             *            |  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F |
+             * -----------+----------------------------------------------+-----------------
+             * 0x00000000 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+             * 0x00000010 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+             */
+            var builder = new StringBuilder();
+            builder.AppendLine("-------------------------------------------------------------------------------");
+            builder.AppendLine($"- TIME: {DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}");
+            builder.AppendLine("-----------+-------------------------------------------------+-----------------");
+            builder.AppendLine("           |  0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F |");
+            builder.AppendLine("-----------+-------------------------------------------------+-----------------");
+            for (int i = 0; i < body.Length; i += 0x10)
+            {
+                builder.Append($"0x{i.ToString("X8")} |");
+                for (int j = 0; j < 0x10; j++)
+                {
+                    if (i + j >= body.Length)
+                    {
+                        builder.Append("   ");
+                        continue;
+                    }
+                    builder.Append($" {body[i + j].ToString("X2")}");
+                }
+                builder.Append(" | ");
+                for (int j = 0; j < 0x10 && i + j < body.Length; j++)
+                {
+                    var b = body[i + j];
+                    if (b >= 0x20 && b <= 0x7F)
+                    {
+                        builder.Append(Convert.ToChar(b));
+                    }
+                    else
+                    {
+                        builder.Append(".");
+                    }
+                }
+                builder.AppendLine();
+            }
+            return builder.ToString();
+        }
+
+        /// <summary>
         /// 获取使用BinaryWriter写入的String类型的字节长度以及数据字节长度
         /// </summary>
         /// <param name="data">字节数组</param>
