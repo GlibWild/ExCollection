@@ -8,7 +8,7 @@ namespace ExCollection
 {
     public static class ExFile
     {
-        public static string GetCheckCodeFromFile(this string filePath, CheckCodeType codeType)
+        public static string GetCheckCodeFromFile(this string filePath, CheckCodeType codeType,string spliteChar="")
         {
             string result = string.Empty;
             if (!string.IsNullOrEmpty(filePath))
@@ -16,13 +16,13 @@ namespace ExCollection
                 if (File.Exists(filePath))
                 {
                     FileStream fs = new FileStream(filePath, FileMode.Open);
-                    result = GetCheckCodeFromFile(fs, codeType);
+                    result = fs.GetCheckCodeFromFile(codeType, spliteChar);
                 }
             }
             return result;
         }
 
-        private static string GetCheckCodeFromFile(this FileStream file, CheckCodeType codeType = CheckCodeType.MD5)
+        public static string GetCheckCodeFromFile(this FileStream file, CheckCodeType codeType = CheckCodeType.MD5, string spliteChar = "")
         {
             string result = string.Empty;
             switch (codeType)
@@ -32,7 +32,7 @@ namespace ExCollection
                         var md5 = new MD5CryptoServiceProvider();
                         var bytes = md5.ComputeHash(file);
                         file.Close();
-                        result = bytes.ToHexString();
+                        result = bytes.ToHexString(spliteChar);
                     }
                     break;
                 case CheckCodeType.SHA1:
@@ -40,7 +40,7 @@ namespace ExCollection
                         var sha1 = SHA1.Create();
                         var bytes = sha1.ComputeHash(file);
                         file.Close();
-                        result = bytes.ToHexString();
+                        result = bytes.ToHexString(spliteChar);
                     }
                     break;
                 case CheckCodeType.SHA256:
@@ -48,7 +48,7 @@ namespace ExCollection
                         var sha1 = SHA256.Create();
                         var bytes = sha1.ComputeHash(file);
                         file.Close();
-                        result = bytes.ToHexString();
+                        result = bytes.ToHexString(spliteChar);
                     }
                     break;
                 case CheckCodeType.SHA384:
@@ -56,7 +56,7 @@ namespace ExCollection
                         var sha1 = SHA384.Create();
                         var bytes = sha1.ComputeHash(file);
                         file.Close();
-                        result = bytes.ToHexString();
+                        result = bytes.ToHexString(spliteChar);
                     }
                     break;
                 case CheckCodeType.SHA512:
@@ -64,7 +64,7 @@ namespace ExCollection
                         var sha1 = SHA512.Create();
                         var bytes = sha1.ComputeHash(file);
                         file.Close();
-                        result = bytes.ToHexString();
+                        result = bytes.ToHexString(spliteChar);
                     }
                     break;
             }

@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ExCollection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace UnitTestProject1
 {
@@ -14,17 +15,18 @@ namespace UnitTestProject1
             TestGetBitValue();
         }
         [TestMethod]
-        public void TestMethod2() 
+        public void TestMethod2()
         {
             TestSetBitValue();
         }
         [TestMethod]
-        public void TestMethod3() 
+        public void TestMethod3()
         {
             TestGetAttribute();
         }
         [TestMethod]
-        public void TestMethod4() {
+        public void TestMethod4()
+        {
             TestHasBitValue();
         }
 

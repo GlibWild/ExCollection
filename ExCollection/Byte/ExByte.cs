@@ -341,14 +341,14 @@ namespace ExCollection
         /// </summary>
         /// <param name="body"></param>
         /// <returns></returns>
-        public static string ToHexString(this byte[] body)
+        public static string ToHexString(this byte[] body,string spliteChar="")
         {
             StringBuilder sb = new StringBuilder();
             foreach (var item in body)
             {
                 string data = item.ToString("X2");
                 sb.Append(data);
-                sb.Append(" ");
+                sb.Append(spliteChar);
             }
             return sb.ToString();
         }
