@@ -25,14 +25,17 @@ namespace ExCollection
             return string.Empty;
         }
 
-        public static T GetCustomAttribute<T>(this Enum enumValue) where T:class
+        public static T GetCustomAttribute<T>(this Enum enumValue) where T : class
         {
             var type = enumValue.GetType();
             var field = type.GetField(enumValue.ToString());
-            var desc = field.GetCustomAttribute(typeof(T)) as T;
-            if (desc != null)
+            if (field != null)
             {
-                return desc;
+                var desc = field.GetCustomAttribute(typeof(T)) as T;
+                if (desc != null)
+                {
+                    return desc;
+                }
             }
             return null;
         }

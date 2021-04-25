@@ -30,6 +30,28 @@ namespace UnitTestProject1
             TestHasBitValue();
         }
 
+        public class AlarmMatchAttribute : Attribute
+        {
+            public GpsAlarm Alarm { get; set; }
+            public AlarmMatchAttribute(GpsAlarm Alarm)
+            {
+                this.Alarm = Alarm;
+            }
+        }
+        public enum GpsAlarm 
+        {
+            Gps1,
+            Gps2
+        }
+
+        public enum OriginAlarm 
+        {
+            [AlarmMatch(GpsAlarm.Gps1)]
+            Test1,
+            [AlarmMatch(GpsAlarm.Gps2)]
+            Test2,
+        }
+
         private void TestHasBitValue()
         {
             byte[] temp = new byte[10];
