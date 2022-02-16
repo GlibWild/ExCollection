@@ -8,15 +8,17 @@ namespace ExCollection
 {
     public static class ExFile
     {
-        public static string GetCheckCodeFromFile(this string filePath, CheckCodeType codeType,string spliteChar="")
+        public static string GetCheckCodeFromFile(this string filePath, CheckCodeType codeType, string spliteChar = "")
         {
             string result = string.Empty;
             if (!string.IsNullOrEmpty(filePath))
             {
                 if (File.Exists(filePath))
                 {
-                    FileStream fs = new FileStream(filePath, FileMode.Open);
-                    result = fs.GetCheckCodeFromFile(codeType, spliteChar);
+                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                    {
+                        result = fs.GetCheckCodeFromFile(codeType, spliteChar);
+                    }
                 }
             }
             return result;

@@ -29,6 +29,48 @@ namespace UnitTestProject1
         {
             TestHasBitValue();
         }
+        [TestMethod]
+        public void TestMethod5()
+        {
+            TestDegree();
+        }
+
+        [TestMethod]
+        public void TestMethod6()
+        {
+            TestEntity();
+        }
+
+        class Class 
+        {
+            public string Name { get; set; }
+            public List<Student> Students { get; set; }
+        }
+        class Student
+        {
+            public string Name { get; set; }
+        }
+
+        private void TestEntity()
+        {
+            Class c = new Class();
+            c.Name = "高三一班";
+            c.Students = new List<Student>();
+            c.Students.Add(new Student() 
+            {
+                Name = "张三"
+            });
+            Class copyC = c.DeepCopyByXml();
+            copyC.Name = "高三二班";
+            copyC.Students[0].Name = "李四";
+        }
+
+        private void TestDegree()
+        {
+            Degree g1 = new Degree(30.047666, 103.053256);
+            Degree g2 = new Degree(30.0475, 103.052768);
+            var distance = ExDegree.GetDistance(g1, g2) / 1000;
+        }
 
         public class AlarmMatchAttribute : Attribute
         {
