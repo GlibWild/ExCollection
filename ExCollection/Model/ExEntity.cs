@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Serialization;
@@ -41,8 +42,10 @@ namespace ExCollection
         /// </summary>
         /// <param name="oneT"></param>
         /// <param name="twoT"></param>
+        /// <param name="toChild">是否透传至子对象</param>
+        /// <param name="excludeNames">不比较对象名称</param>
         /// <returns></returns>
-        public static bool CompareType<T>(this T oneT, T twoT)
+        public static bool CompareType<T>(this T oneT, T twoT, bool toChild = true, params string[] excludeNames)
         {
             bool result = true;//两个类型作比较时使用,如果有不一样的就false
             Type typeOne = oneT.GetType();
@@ -64,6 +67,10 @@ namespace ExCollection
                 //获取属性名
                 string oneName = pisOne[i].Name;
                 string twoName = pisTwo[i].Name;
+
+                if (excludeNames.Contains(oneName) || excludeNames.Contains(twoName))
+                    continue;
+
                 //获取属性的值
                 object oneValue = pisOne[i].GetValue(oneT, null);
                 object twoValue = pisTwo[i].GetValue(twoT, null);
@@ -106,8 +113,16 @@ namespace ExCollection
                 else
                 {
                     //如果对象中的属性是实体类对象，递归遍历比较
-                    bool b = CompareType(oneValue, twoValue);
-                    if (!b) { result = b; break; }
+                    if (toChild)
+                    {
+                        bool b = CompareType(oneValue, twoValue, toChild, excludeNames);
+                        if (!b) { result = b; break; }
+                    }
+                    else
+                    {
+                        bool b = CompareType(oneValue, twoValue);
+                        if (!b) { result = b; break; }
+                    }
                 }
             }
             return result;
