@@ -67,4 +67,6 @@ var disctance = ExDegree.GetDistance(d1,d2);
 #### 修复FileStream实例并未被显式地释放的问题
 #### 新增xml 序列化和反序列化实现实体类深复制
 
+### V1.0.4.9
+#### 新增实体类比较扩展方法
 ##### 更新中...
