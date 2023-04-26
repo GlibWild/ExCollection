@@ -110,6 +110,36 @@ namespace ExCollection
                         break;
                     }
                 }
+                else if (pisOne[i].PropertyType.IsArray && pisTwo[i].PropertyType.IsArray)
+                {
+                    var array1 = oneValue as Array;
+                    var array2 = twoValue as Array;
+                    if (array1 == null && array2 == null)
+                    {
+                        result = true;
+                        break;
+                    }
+                    else
+                    {
+                        if ((array1 == null && array2 != null) || (array1 != null && array2 == null))
+                        {
+                            result = false;
+                            break;
+                        }
+
+                    }
+                    for (int j = 0; j < array1.Length; j++)
+                    {
+                        if (array1.GetValue(j).Equals(array2.GetValue(j))) continue;
+                        else
+                        {
+                            result = false;
+                            break;
+                        }
+                    }
+                    if (!result) break;
+
+                }
                 else
                 {
                     //如果对象中的属性是实体类对象，递归遍历比较
