@@ -9,7 +9,7 @@
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/GlibWild/ExCollection</PackageProjectUrl>
-    <Version>1.0.4.9</Version>
+    <Version>1.0.4.10</Version>
     <AssemblyVersion>1.0.4.8</AssemblyVersion>
     <FileVersion>1.0.4.8</FileVersion>
   </PropertyGroup>
