@@ -40,7 +40,22 @@ namespace UnitTestProject1
         {
             TestEntity();
         }
-
+        [TestMethod]
+        public void TestMethod7() 
+        {
+            var test = "≤‚ ‘";
+            var test1 = "test≤‚ ‘";
+            var test2 = "123≤‚ ‘";
+            var test3 = "Test≤‚ ‘";
+            var result = test.ToFirstCharUpper();
+            var result1 = test1.ToFirstCharUpper();
+            var result2 = test2.ToFirstCharUpper();
+            var result3 = test3.ToFirstCharUpper();
+            var result00= result.ToFirstCharLower();
+            var result01 = test1.ToFirstCharLower();
+            var result02 = test2.ToFirstCharLower();
+            var result03 = test3.ToFirstCharLower();
+        }
         class Class 
         {
             public string Name { get; set; }
