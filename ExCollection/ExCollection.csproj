@@ -10,9 +10,9 @@
 		<PackageLicenseFile>MIT.txt</PackageLicenseFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/GlibWild/ExCollection</PackageProjectUrl>
-		<Version>1.0.4.10</Version>
-		<AssemblyVersion>1.0.4.8</AssemblyVersion>
-		<FileVersion>1.0.4.8</FileVersion>
+		<Version>1.0.4.11</Version>
+		<AssemblyVersion>1.0.4.11</AssemblyVersion>
+		<FileVersion>1.0.4.11</FileVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
@@ -40,9 +40,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 		<PackageReference Include="System.Text.Encoding" Version="4.3.0" />
-		<PackageReference Include="System.Text.Json" Version="5.0.0" />
+		<PackageReference Include="System.Text.Json" Version="6.0.9" />
 	</ItemGroup>
 
 </Project>
